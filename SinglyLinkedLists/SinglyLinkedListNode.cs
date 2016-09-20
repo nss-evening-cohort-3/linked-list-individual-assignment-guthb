@@ -15,14 +15,26 @@ namespace SinglyLinkedLists
         private SinglyLinkedListNode next;
         public SinglyLinkedListNode Next
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            //get { return null; }
+            get { return this.next; }
+            set {
+                if (this == value)
+                {
+                    throw new ArgumentException();
+                }else
+                {
+                    this.next = value;
+                }
+                
+
+            }
         }
 
-        private string value;
+        private string value;  // private data member
         public string Value 
         {
-            get { throw new NotImplementedException(); }
+           // get { throw new NotImplementedException(); }
+           get { return this.value; }
         }
 
         public static bool operator <(SinglyLinkedListNode node1, SinglyLinkedListNode node2)
@@ -39,7 +51,8 @@ namespace SinglyLinkedLists
 
         public SinglyLinkedListNode(string value)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();  -remove
+            this.value = value;
 
             // Used by the visualizer:
             allNodes.Add(this);
@@ -55,5 +68,11 @@ namespace SinglyLinkedLists
         {
             throw new NotImplementedException();
         }
+
+        public override string ToString()
+        {
+            return this.value;
+        }
+
     }
 }
